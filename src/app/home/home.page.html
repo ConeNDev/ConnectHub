@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid [fixed]="true" class="feed-grid">
+    <ion-row *ngFor="let feed of feeds" class="feed-item">
+      <ion-col size="12" class="feed-content" (click)="showDetails(feed.id)">
+        <img [src]="feed.imageUrl" alt="{{ feed.title }}" class="feed-image" />
+        <h2 class="feed-title">{{ feed.title }}</h2>
+        <p class="feed-description">{{ feed.description }}</p>
+        <img [src]="photoUrl" alt="Profile Picture" class="profile-button-img" (click)="viewPosterProfile(feed.userId)"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

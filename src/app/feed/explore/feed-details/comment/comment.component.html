@@ -1,0 +1,11 @@
+<ion-card *ngIf="comment">
+  <ion-item>
+    <ion-avatar slot="start">
+      <img [src]="userC.photoUrl" alt="User Image">
+    </ion-avatar>
+    <ion-label>
+      <h2>{{ userC.username }}</h2>
+      <p>{{ text }}</p>
+    </ion-label>
+  </ion-item>
+</ion-card>

@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>log-in</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #logInForm="ngForm" (ngSubmit)="onLogIn(logInForm)">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-sm="10" >
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" ngModel name="email" required email></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" ngModel name="password" required minlength="7" #password="ngModel"></ion-input>
+            </ion-item>
+            <ion-item lines="none" *ngIf="password.invalid && password.touched">
+              <ion-label>Should be minimum 7 characters long</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="9">
+          <div class="ion-text-center">
+            <ion-spinner color="primary" *ngIf="isLoading"></ion-spinner>
+          </div>
+          <ion-button type="submit" expand="full" size="large" [disabled]="logInForm.invalid" *ngIf="!isLoading">Log In</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="9">
+          <div class="ion-text-center">
+            <ion-button fill="clear" (click)="goToRegister()">Don't have an account? Register</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="9">
+          <div class="ion-text-center" *ngIf="errorMessage">
+            <ion-text color="danger">{{ errorMessage }}</ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="margin-top: 20px;">
+      <ion-col size="12" size-md="8" size-lg="6">
+        <div class="profile-info">
+          <img [src]="photoUrl" alt="Profile Picture" class="profile-picture" />
+          <h2>{{ username }}</h2>
+          <p class="name-surname">{{ fullName }}</p>
+          <p>Followers: {{ followers }}</p>
+          <p>Following: {{ followed }}</p>
+          <ion-button *ngIf="isAuthUser()" (click)="onFollow()" color="secondary">Follow</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" *ngFor="let post of posts" (click)="openFeedDetails(post.id)">
+        <img [src]="post.imageUrl" alt="{{ post.title }}" class="feed-image" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

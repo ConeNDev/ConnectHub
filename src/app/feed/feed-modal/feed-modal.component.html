@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #f="ngForm" (ngSubmit)="onAddPost()">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">Title</ion-label>
+          <ion-input type="text" ngModel name="title"  required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">Description</ion-label>
+          <ion-textarea name="description" ngModel required></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">Image URL</ion-label>
+          <ion-input type="text" name="imageUrl" ngModel required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button type="submit" color="primary" expand="block" [disabled]="f.invalid">Publish</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+
+
+</ion-content>

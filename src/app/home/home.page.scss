@@ -1,0 +1,49 @@
+.feed-grid {
+  padding: 1rem;
+
+  .feed-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+
+    .feed-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .feed-image {
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .feed-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+
+      .feed-description {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: #666;
+      }
+
+      .profile-button-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid #007bff;
+        padding: 2px;
+      }
+    }
+  }
+}

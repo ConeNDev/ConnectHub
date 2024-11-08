@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Feed Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isLoading; else loadingTemplate">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ feed.title }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img [src]="feed.imageUrl" alt="{{ feed.title }}" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>{{ feed.title }}</h2>
+        <p>{{ feed.description }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <img [src]="photoUrl" alt="Profile Picture" class="profile-button-img" (click)="viewPosterProfile(feed.userId)"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button *ngIf="canEdit()" (click)="onEditFeed()">Edit</ion-button>
+        <ion-button *ngIf="canEdit()" color="danger" (click)="onDeleteFeed()">Delete</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="commentForm" (ngSubmit)="onPostComment()">
+          <ion-item>
+            <ion-label position="floating">Add a comment</ion-label>
+            <ion-input type="text" formControlName="comment"></ion-input>
+          </ion-item>
+          <ion-button type="submit" expand="full">Post Comment</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>Comments</h3>
+        <ion-list>
+          <ion-row *ngFor="let comment of comments">
+            <ion-col>
+              <app-comment [comment]="comment" [text]="comment.text"></app-comment>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ng-template #loadingTemplate>
+  <ion-spinner></ion-spinner>
+</ng-template>

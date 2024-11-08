@@ -1,0 +1,31 @@
+.profile-info {
+  text-align: center;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.name-surname {
+  margin-top: -10px;
+  color: grey;
+}
+
+.profile-button-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.feed-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}

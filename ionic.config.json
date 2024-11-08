@@ -1,0 +1,7 @@
+{
+  "name": "ConnectHub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
